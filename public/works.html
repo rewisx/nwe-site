@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>実績紹介 | NextLinks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 class="logo"><a href="index.html">NextLinks</a></h1>
+    <button id="theme-toggle">🌙</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="company.html">企業情報</a></li>
+        <li><a href="services.html">事業内容</a></li>
+        <li><a href="works.html">実績</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+        <li><a href="recruit.html">採用情報</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="works-page">
+    <h2>導入事例</h2>
+    <section class="work-card">
+      <h3>ABC不動産 様</h3>
+      <p>コーポレートサイトのリニューアルを担当。ユーザー導線を整理し、問合せ率が150%アップ。</p>
+    </section>
+    <section class="work-card">
+      <h3>XYZクリニック 様</h3>
+      <p>予約管理システムの開発と導入。スタッフの作業時間を40%削減。</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 NextLinks Inc. All Rights Reserved.</p>
+  </footer>
+
+  <!-- bodyの最後に入れる -->
+    <script>
+    const faders = document.querySelectorAll('.work-card, .service');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+        }
+        });
+    }, {
+        threshold: 0.1,
+    });
+
+    faders.forEach(fader => {
+        fader.classList.add('fade-init');
+        observer.observe(fader);
+    });
+    </script>
+        <script>
+    const btn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // 初期テーマ
+    body.classList.add('light');
+
+    btn.addEventListener('click', () => {
+        body.classList.toggle('light');
+        body.classList.toggle('dark');
+    });
+    </script>
+
+</body>
+</html>

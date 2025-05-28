@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>事業内容 | NextLinks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 class="logo"><a href="index.html">NextLinks</a></h1>
+    <button id="theme-toggle">🌙</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="company.html">企業情報</a></li>
+        <li><a href="services.html">事業内容</a></li>
+        <li><a href="works.html">実績</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+        <li><a href="recruit.html">採用情報</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="services-page">
+    <section class="intro">
+      <h2>私たちの事業</h2>
+      <p>NextLinksは、ITの力で企業の成長を支えるサービスを展開しています。</p>
+    </section>
+
+    <section class="service">
+      <h3>Web制作</h3>
+      <p>
+        コーポレートサイトや採用サイト、LPなど、企業の魅力を最大限に引き出すWebサイトを制作します。
+        UI/UXデザインからコーディング、CMS導入までワンストップで対応可能です。
+      </p>
+    </section>
+
+    <section class="service">
+      <h3>ITコンサルティング</h3>
+      <p>
+        中小企業・スタートアップを対象に、IT戦略の策定、システム導入支援、業務改善などをサポートします。
+        お客様の課題に合わせて最適なITの導入をご提案します。
+      </p>
+    </section>
+
+    <section class="service">
+      <h3>企業向けソフトウェア開発</h3>
+      <p>
+        顧客管理、業務自動化、予約管理など、企業の業務効率を高めるオリジナルソフトウェアの開発を行います。
+        クラウド対応・セキュリティ対策も万全です。
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 NextLinks Inc. All Rights Reserved.</p>
+  </footer>
+
+  <!-- bodyの最後に入れる -->
+    <script>
+    const faders = document.querySelectorAll('.work-card, .service');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+        }
+        });
+    }, {
+        threshold: 0.1,
+    });
+
+    faders.forEach(fader => {
+        fader.classList.add('fade-init');
+        observer.observe(fader);
+    });
+    </script>
+        <script>
+    const btn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // 初期テーマ
+    body.classList.add('light');
+
+    btn.addEventListener('click', () => {
+        body.classList.toggle('light');
+        body.classList.toggle('dark');
+    });
+    </script>
+
+</body>
+</html>

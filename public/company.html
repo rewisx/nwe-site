@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width", initial-scale="1.0" />
+    <title>企業情報 | NextLinks</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1 class="logo"><a href="index.html">NextLinks</a></h1>
+        <button id="theme-toggle">🌙</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">トップ</a></li>
+                <li><a href="company.html">企業情報</a></li>
+                <li><a href="services.html">事業内容</a></li>
+                <li><a href="works.html">実績</a></li>
+                <li><a href="blog.html">ブログ</a></li>
+                <li><a href="recruit.html">採用情報</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="company-page">
+        <section>
+            <h2>会社概要</h2>
+            <table>
+                <tr><th>会社名</th><td>株式会社NextLinks</td></tr>
+                <tr><th>設立</th><td>2025年5月</td></tr>
+                <tr><th>代表取締役</th><td>山田　翼</td></tr>
+                <tr><th>所在地</th><td>東京都渋谷区未来1-1-1</td></tr>
+                <tr><th>事業内容</th><td>Web制作 / ITコンサル / ソフトウェア開発</td></tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>代表メッセージ</h2>
+            <p>
+                NextLinksは「人とテクノロジーを、信頼でつなぐ」をビジョンに、
+                常に変化するIT社会に柔軟に対応しながら、クライアントとともに成長する企業を目指しています。
+            </p>
+        </section>
+
+        <section>
+            <h2>沿革</h2>
+            <ul>
+                <li>2025年：株式会社NextLinks設立</li>
+                <li>2026年：業務用SaaS第1弾をリリース</li>
+                <li>2027年：東京本社を拡大移転</li>
+            </ul>
+        </section>
+        <section>
+        <h2>アクセス</h2>
+        <p>〒150-0002 東京都渋谷区未来1-1-1</p>
+        <iframe
+            src="https://maps.google.com/maps?q=渋谷駅&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
+        </iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 NextLinks Inc. All Rights Reserved.</p>
+    </footer>
+
+    <!-- bodyの最後に入れる -->
+    <script>
+    const faders = document.querySelectorAll('.work-card, .service');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+        }
+        });
+    }, {
+        threshold: 0.1,
+    });
+
+    faders.forEach(fader => {
+        fader.classList.add('fade-init');
+        observer.observe(fader);
+    });
+    </script>
+        <script>
+    const btn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // 初期テーマ
+    body.classList.add('light');
+
+    btn.addEventListener('click', () => {
+        body.classList.toggle('light');
+        body.classList.toggle('dark');
+    });
+    </script>
+
+</body>
+</html>

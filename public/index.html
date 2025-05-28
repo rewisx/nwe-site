@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NextLinks | ネクスト</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1 class="logo"><a href="index.html">NextLinks</a></h1>
+        <button id="theme-toggle">🌙</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">トップ</a></li>
+                <li><a href="company.html">企業情報</a></li>
+                <li><a href="services.html">事業内容</a></li>
+                <li><a href="works.html">実績</a></li>
+                <li><a href="blog.html">ブログ</a></li>
+                <li><a href="recruit.html">採用情報</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>ITの力で、未来にリンクを。</h2>
+            <p>信頼と技術で、つながる社会を。</p>
+        </div>
+    </section>
+
+    <section class="scroll-anim">
+        <h2>事業内容</h2>
+        <p>私たちはWeb制作とITコンサルティングを行っています。</p>
+    </section>
+    
+    <section class="service">
+        <h2>事業内容</h2>
+        <div class="service-list">
+            <div class="service">
+                <h3>Web制作</h3>
+                <p>ホームページやLPの設計・開発を行います。</p>
+            </div>
+            <div class="service">
+                <h3>ITコンサル</h3>
+                <p>業務用アプリケーションをオーダーメイドで開発。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="news">
+        <h2>お知らせ</h2>
+        <ul>
+            <li>2025.05.24:架空企業サイトを立ち上げました</li>
+            <li>2025.04.01:新卒採用を開始しました</li>
+        </ul>
+    </section>
+
+    <section class="recruit">
+        <a href="#">一緒に、次の時代を創ろう →</a>
+    </section>
+    <footer>
+        <p>© 2025 NextLinks Inc. All Rights Reserved.</p>
+    </footer>
+
+    <!-- bodyの最後に入れる -->
+    <script>
+    const faders = document.querySelectorAll('.work-card, .service');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+        }
+        });
+    }, {
+        threshold: 0.1,
+    });
+
+    faders.forEach(fader => {
+        fader.classList.add('fade-init');
+        observer.observe(fader);
+    });
+    </script>
+
+    <script>
+    const btn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // 初期テーマ
+    body.classList.add('light');
+
+    btn.addEventListener('click', () => {
+        body.classList.toggle('light');
+        body.classList.toggle('dark');
+    });
+    </script>
+
+    <script>
+        const animElems = document.querySelectorAll('.scroll-anim');
+
+        const animObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // 一度表示されたら監視を外す（パフォーマンス向上）
+                animObserver.unobserve(entry.target);
+            }
+            });
+        }, { threshold: 0.1 });
+
+        animElems.forEach(el => {
+            animObserver.observe(el);
+        });
+    </script>
+
+
+</body>
+</html>
